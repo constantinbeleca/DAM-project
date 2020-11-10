@@ -1,0 +1,5 @@
+1. As a User I want to be able to login and use the app for managing projects.
+2. As a {Role} I want to be able to submit bugs on projects.
+3. As a {Role} I want to be able to add Epics/Stories/Tasks/Subtasks/Bugs.
+4. As a {Role} I want to be able to transition Epics/Stories/Tasks/Subtasks/Bugs from a state to another.
+5. As a Product Owner I want to be able to have an estimate of effort. ...
