@@ -45,6 +45,11 @@ class Project extends React.Component {
         // debugger
         if (!result.destination) return;
 
+        //TODO: Add Logic behind adding and removing elements
+        // result = input & output
+        // result.destination si result.source
+
+
         // const items = Array.from(this.testArr);
         // const [reorderedItem] = items.splice(result.source.index, 1);
         // items.splice(result.destination.index, 0, reorderedItem);
