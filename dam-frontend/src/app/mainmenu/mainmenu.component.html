@@ -1,0 +1,16 @@
+<p>mainmenu works!</p>
+<div>
+    <form>
+      <div class="new_prj form-group">
+        <input [(ngModel)]="prjName" class="form-control" id="prjName" placeholder="Project Name" name="prjName">
+        <button class="btn btn-primary" (click)="createNewProject()">Create New Project</button>
+      </div>
+      &nbsp;
+      <div class="form-group existing_prj">
+        <label for="exampleInputPassword1">Enter in Already Existing Project Unique Code</label>
+        <input [(ngModel)]="unqCode" class="form-control" id="unqCode" placeholder="Unique Code For project" name="code">
+        <button class="btn btn-primary" (click)="enterExistingProject()">Enter Existing Project</button>
+      </div>
+    </form>
+  </div>
+<router-outlet></router-outlet>

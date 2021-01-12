@@ -1,0 +1,79 @@
+<div>
+    <form>
+        <div class="form-group">
+          <label for="taskName">Enter Task Name</label>
+          <input [(ngModel)]="taskName" class="form-control" id="taskName" aria-describedby="emailHelp" placeholder="Task Name" name="taskName">
+        </div>
+        <div class="form-group">
+          <label for="Description">Enter Description</label>
+          <input [(ngModel)]="description"  class="form-control" id="Description" placeholder="Description" name="description">
+        </div>
+        <button  type="submit" class="btn btn-primary" (click)="insertNewTask()">Submit</button>
+      </form>
+</div>
+&nbsp;
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 column">
+            <h2>New Tasks</h2>
+            <div cdkDropList #todoList="cdkDropList" 
+                [cdkDropListData]="new_tasks"
+                [cdkDropListConnectedTo]="[in_working_list]"
+                [cdkDropListConnectedTo]="[done_list]" 
+                class="example-list" 
+                (cdkDropListDropped)="onDrop($event)">
+                <div class="example-box" *ngFor="let task of new_tasks" cdkDrag>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{task.Title}}</h5>
+                            <p class="card-text">{{task.Description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <div class="container">
+                <h2>In Progress</h2>
+                <div cdkDropList #in_working_list="cdkDropList" 
+                    [cdkDropListData]="in_progress"
+                    [cdkDropListConnectedTo]="[todoList]"
+                    [cdkDropListConnectedTo]="[done_list]" 
+                    class="movie-list" 
+                    (cdkDropListDropped)="onDrop($event)">
+                    <div class="movie-block" *ngFor="let task of in_progress" cdkDrag>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{task.Title}}</h5>
+                                <p class="card-text">{{task.Description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <div class="container">
+                <h2>Done Tasks</h2>
+                <div 
+                cdkDropList 
+                #done_list="cdkDropList" 
+                [cdkDropListData]="done"
+                [cdkDropListConnectedTo]="[in_working_list]"
+                [cdkDropListConnectedTo]="[todoList]"
+                class="movie-list" 
+                (cdkDropListDropped)="onDrop($event)">
+                <div class="movie-block" *ngFor="let task of done" cdkDrag>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{task.Title}}</h5>
+                            <p class="card-text">{{task.Description}}</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        </div>
+
+    </div>
+    <router-outlet></router-outlet>
